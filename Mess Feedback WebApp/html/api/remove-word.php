@@ -1,0 +1,1 @@
+// remve word from db

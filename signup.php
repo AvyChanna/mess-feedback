@@ -38,7 +38,6 @@
 				<label for="name">FullName:</label>
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
-						<div class="input-group-append bg-dark"> <span class="input-group-text" >@iitg.ac.in</span> </div>
 					</div>
 				</div>
 				<div class="form-group">
@@ -52,7 +51,6 @@
 					<label for="rollno">Roll Number:</label>
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" id="rollno" placeholder="Enter username" name="rollno" required>
-						<div class="input-group-append bg-dark"> <span class="input-group-text" >@iitg.ac.in</span> </div>
 					</div>
 				</div>
 				<div class="form-group">

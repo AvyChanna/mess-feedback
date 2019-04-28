@@ -18,11 +18,11 @@
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> 
 			<div class="collapse navbar-collapse"> 
 				<ul class="navbar-nav mr-auto"> 
-					<li class="nav-item active"> <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a> </li> 
+					<li class="nav-item"> <a class="nav-link" href="/user.php">Home</a> </li> 
 					<li class="nav-item"> <a class="nav-link" href="/user_change_mess.php">Change Mess For Upcoming Month</a> </li> 
 					<li class="nav-item"> <a class="nav-link" href="/user_new_feedback.php">Provide New Feedback</a> </li> 
 					<li class="nav-item"> <a class="nav-link" href="/user_previous_feedback.php">View Previous Feedbacks</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="/user_change_password.php">Change Password</a> </li> 
+                    <li class="nav-item active"> <a class="nav-link" href="#">Change Password<span class="sr-only">(current)</span></a></li> 
 				</ul> 
 		<!-- TODO Logged in already? Display Logout  -->
 		<button id="logoutbutton" class="btn btn-primary my-2 my-sm-0">Logout</button> 

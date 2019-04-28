@@ -18,12 +18,12 @@
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> 
 			<div class="collapse navbar-collapse"> 
 				<ul class="navbar-nav mr-auto"> 
-					<li class="nav-item active"> <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a> </li> 
+					<li class="nav-item"> <a class="nav-link" href="/admin.php">Home</a> </li> 
 					<li class="nav-item"> <a class="nav-link" href="/add_remove_update_mess.php">View Mess</a> </li> 
-					<li class="nav-item"> <a class="nav-link" href="/add_users.php">Add Users</a> </li> 
-					<li class="nav-item"> <a class="nav-link" href="/remove_users.php">Remove Users</a> </li>
+					<li class="nav-item"> <a class="nav-link" href="/add_students.php">Add Students</a> </li> 
+					<li class="nav-item"> <a class="nav-link" href="/remove_students.php">Remove Students</a> </li>
 					<li class="nav-item"> <a class="nav-link" href="/add_remove_keywords.php">Edit Keywords</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="/admin_change_password.php">Change Password</a> </li> 
+                    <li class="nav-item active"> <a class="nav-link" href="#">Change Password<span class="sr-only">(current)</span></a> </li> 
 				</ul> 
 		<!-- TODO Logged in already? Display Logout  -->
 		<button id="logoutbutton" class="btn btn-primary my-2 my-sm-0">Logout</button> 
@@ -32,11 +32,36 @@
 </div>
 <div class="container-fluid main page">
 	<div class="text-light pt-5 pb-5 pb-md-0">
-		<h1 class="text-center display-5 pt-2">Mess Management Login</h1>
+		<h1 class="text-center display-5 pt-2">Change Password</h1>
         <div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5"><hr></div>
 		<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5"> 
 			<!-- TODO add signup api uri -->
 			<form action="#" method="POST">
+            <div class="form-group">
+					<label for="oldpassword">Old Password:</label>
+					<div class="input-group mb-3">
+						<input type="password" class="form-control hide" id="oldpassword" placeholder="Enter old password" name="oldpassword" required>
+						<div id="oldpassword-toggle" class="input-group-append"><span class="fas input-group-text fa-eye"></span></div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="newpassword">New Password:</label>
+					<div class="input-group mb-3">
+						<input type="password" class="form-control hide" id="newpassword" placeholder="Enter new password" name="newpassword" required>
+						<div id="newpassword-toggle" class="input-group-append"><span class="fas input-group-text fa-eye"></span></div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="confpassword">Confirm Password:</label>
+					<div class="input-group mb-3">
+						<input type="password" class="form-control hide" id="confpassword" placeholder="Confirm new password" name="confpassword" required>
+						<div id="confpassword-toggle" class="input-group-append"><span class="fas input-group-text fa-eye"></span></div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<button type="submit" class="mx-auto px-5 mt-3 btn btn-primary">Submit</button>
+				</div>
+            </form>
 	</div>
 </div>
 <div class="footer">

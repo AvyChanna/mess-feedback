@@ -14,7 +14,7 @@ if(  (!isset($_SESSION["loggedin"]))   ||   ($_SESSION["loggedin"]=false)){
     }
     if($_SESSION["status"]=="user")
     {
-        header("Location: user.php");
+        header("Location: student.php");
     }
 }
 ?>

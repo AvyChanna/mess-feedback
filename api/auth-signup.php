@@ -6,11 +6,12 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 	if($_POST['password']==$_POST['confpassword']){
 		$username = $mysqli->real_escape_string($_POST['username']);
 		$fullname = $mysqli->real_escape_string($_POST['name']);
+		$mess = $mysqli->real_escape_string($_POST['mess']);
 		$rollno = $mysqli->real_escape_string($_POST['rollno']);
 		$rollno = (int)$rollno;
 		//$password = md5($_POST['password']);
 		$password = $mysqli->real_escape_string($_POST['password']);
-		$sql = "INSERT INTO users (username, `name`, rollno, passwordhash)". "Values ('".$username."', '".$fullname."', ".$rollno.", '".$password."')";
+		$sql = "INSERT INTO users (username, `name`, rollno, passwordhash, mess)". "Values ('".$username."', '".$fullname."', ".$rollno.", '".$password."', '".$mess."')";
 
 		if ($mysqli->query($sql)==true){
 			$_SESSION['message']= 'Registration successful';

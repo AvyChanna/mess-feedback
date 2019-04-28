@@ -19,11 +19,10 @@
 			<div class="collapse navbar-collapse"> 
 				<ul class="navbar-nav mr-auto"> 
 					<li class="nav-item active"> <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a> </li> 
-					<li class="nav-item"> <a class="nav-link" href="/add_remove_update_mess.php">View Mess</a> </li> 
-					<li class="nav-item"> <a class="nav-link" href="/add_users.php">Add Users</a> </li> 
-					<li class="nav-item"> <a class="nav-link" href="/remove_users.php">Remove Users</a> </li>
-					<li class="nav-item"> <a class="nav-link" href="/add_remove_keywords.php">Edit Keywords</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="/admin_change_password.php">Change Password</a> </li> 
+					<li class="nav-item"> <a class="nav-link" href="/student_change_mess.php">Change Mess For Upcoming Month</a> </li> 
+					<li class="nav-item"> <a class="nav-link" href="/student_new_feedback.php">Provide New Feedback</a> </li> 
+					<li class="nav-item"> <a class="nav-link" href="/student_previous_feedback.php">View Previous Feedbacks</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="/student_change_password.php">Change Password</a> </li> 
 				</ul> 
 		<!-- TODO Logged in already? Display Logout  -->
 		<button id="logoutbutton" class="btn btn-primary my-2 my-sm-0">Logout</button> 
@@ -46,6 +45,5 @@
 </div>
 <!-- <script defer src="/static/js/clipboard.js" crossorigin="anonymous"></script> --> 
 <script src="/static/js/customuser.js" crossorigin="anonymous"></script>
-<script src="/static/js/custom.js" crossorigin="anonymous"></script>
 </body>
 </html>

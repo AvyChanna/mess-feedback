@@ -1,25 +1,6 @@
 <?php
 session_start ();
-$_SESSION['message']='';
-$mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
-if($_SERVER['REQUEST_METHOD']=='POST'){
-	if($_POST['password']==$_POST['confpassword']){
-		$username = $mysqli->real_escape_string($_POST['username']);
-		$fullname = $mysqli->real_escape_string($_POST['name']);
-		$rollno = $mysqli->real_escape_string($_POST['rollno']);
-		$rollno = (int)$rollno;
-		//$password = md5($_POST['password']);
-		$password = $mysqli->real_escape_string($_POST['password']);
-		$sql = "INSERT INTO users (username, `name`, rollno, passwordhash)". "Values ('".$username."', '".$fullname."', ".$rollno.", '".$password."')";
-
-		if ($mysqli->query($sql)==true){
-			$_SESSION['message']= 'Registration successful';
-			header('location: login.php');
-		} else die($mysqli->error);
-	}
-}
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -56,7 +37,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         <div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5"><hr></div>
 		<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5"> 
 			<!-- TODO add signup api uri -->
-			<form action="#" method="POST">
+			<form action="/api/auth-signup.php" method="POST">
 			<div class="form-group">
 				<label for="name">FullName:</label>
 					<div class="input-group mb-3">
@@ -77,7 +58,12 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 					</div>
 				</div>
 							<!-- TODO mess dropdown here here-->
-							<!-- TODO status dropdown here here-->
+				<div class="form-group">
+					<label for="mess">Current Mess:</label>
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" id="mess" placeholder="Enter Mess" name="mess" required>
+					</div>
+				</div>
 				<div class="form-group">
 					<label for="password">Password:</label>
 					<div class="input-group mb-3">

@@ -1,8 +1,7 @@
 <?php
     session_start();
     if(  (!isset($_SESSION["loggedin"]))   ||   !isset($_SESSION["username"])){
-        echo 0
-        die();
+        die("0");
     }
     $mysqli = new mysqli("localhost", "root", "root", "mess");
     if ($mysqli->connect_errno)

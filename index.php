@@ -1,14 +1,10 @@
 <?php
 session_start();
-if (match_found_in_database()) {
-    $_SESSION['loggedin'] = true;
-    $_SESSION['username'] = $username;
-}
-
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    echo $_SESSION['username'];
+if(  (!isset($_SESSION["loggedin"]))   ||   ($_SESSION["loggedin"]=false)){
+    header("Location: login.php");
+    die();
 } else {
-    header('Location: login.html');
+    header('Location: home.php');
     die();
 }
     // TODO: check cookies and goto login if required

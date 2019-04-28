@@ -4,15 +4,13 @@ $_SESSION['message']='';
 $data = array();
 $mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
 // if($_SERVER['REQUEST_METHOD']=='POST'){
-$result = $mysqli->query("SELECT * FROM `feedbacks`");
+$result = $mysqli->query("SELECT mess, Avg(rating) as rom FROM `feedbacks` group by mess");
 if (($result==true)){
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
             $data[] = array(
                 "mess" => $row["mess"],
-                "feedback" => $row["feedback"],
-                "rating" => $row["rating"],
-                "date" => $row["date"]
+                "rom"  => $row["rom"]
             );
         }
     }

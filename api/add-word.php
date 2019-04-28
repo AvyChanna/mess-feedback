@@ -1,14 +1,15 @@
 <?php
     session_start();
-    if(  (!isset($_SESSION["loggedin"]))   ||   !isset($_SESSION["username"])){
-        die("0");
+    if(  (!isset($_SESSION["loggedin"]))   ||   $_SESSION["loggedin"]==false || $_SESSION["status"]!="admin"){
+        die("1");
     }
-    $mysqli = new mysqli("localhost", "root", "root", "mess");
-    if ($mysqli->connect_errno)
-        die("0");
+    // TODO change to post later
+    if(trim($_GET["word"]))
+    $mysqli = new mysqli("localhost", "roo  t", "", "mess");
+    if ($mysqli->connect_errno) die("2");
 	$stmt = $mysqli->prepare("Insert into words ( word ) values ( ? )");
 	$stmt->bind_param('s', $_GET['word']);
-    if ($result = $stmt->execute()) {}
-        else die("Error in query: ".$mysqli->error);
+    if ($result = $stmt->execute()) {die("0");}
+        else die("3");
     $mysqli->close();
 ?>

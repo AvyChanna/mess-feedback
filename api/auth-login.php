@@ -18,6 +18,7 @@ if(  (!isset($_SESSION["loggedin"]))   ||   ($_SESSION["loggedin"]=false)){
 						$_SESSION["name"]=$row["name"];
 						$_SESSION["rollno"]=$row["rollno"];
 						$_SESSION["mess"]=$row["mess"];
+						$_SESSION["password"]=$row["passwordhash"];
 						header('location: ../home.php');
 					}
 				}

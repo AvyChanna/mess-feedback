@@ -5,7 +5,7 @@
     }
     // TODO change to post later
     if(trim($_GET["word"]))
-    $mysqli = new mysqli("localhost", "roo  t", "", "mess");
+    $mysqli = new mysqli("localhost", "root", "", "mess");
     if ($mysqli->connect_errno) die("2");
 	$stmt = $mysqli->prepare("Insert into words ( word ) values ( ? )");
 	$stmt->bind_param('s', $_GET['word']);

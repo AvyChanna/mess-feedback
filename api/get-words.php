@@ -4,10 +4,13 @@
     $data_arr = array();
     if ($mysqli->connect_errno)
         die("Connect failed: ".$mysqli->connect_error);
-    $query = "SELECT word  FROM words";
+    $query = "SELECT word, rating  FROM words";
     if ($result = $mysqli->query($query)) {
         while ($row = $result->fetch_assoc())
-            array_push($data_arr,$row['word']);
+		$data_arr[] = array(
+			'word' => $row['word'],
+			'rating' => $row['rating']
+		);
         header('Content-Type: application/json');
         echo json_encode($data_arr);
         $result->free();

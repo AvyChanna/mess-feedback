@@ -52,7 +52,7 @@ if(  (isset($_SESSION["loggedin"]))   &&   ($_SESSION["loggedin"]=true)){
 					<label for="pwd">Password:</label>
 					<div class="input-group mb-3">
 						<input type="password" class="form-control hide" id="password" placeholder="Enter password" name="password" required>
-						<div id="password-toggle" class="input-group-append"><span class="fas input-group-text fa-eye"></span></div>
+						<div id="password-toggle" class="input-group-append"><span class="fas input-group-text fa-eye-slash"></span></div>
 					</div>
 				</div>
 				<div class="row text-center">
@@ -61,15 +61,15 @@ if(  (isset($_SESSION["loggedin"]))   &&   ($_SESSION["loggedin"]=true)){
 			</form>
 			<br>
 			<!-- TODO register here-->
-			<div class="container-fluid text-center"> <a href="/signup.php" class="pb-5">Don't have an account? Register Here</a> </div>
+			<div class="container-fluid text-center"> <a href="/signup.php" class="mb-5">Don't have an account? Register Here</a> </div>
 		</div>
 	</div>
 </div>
-<div class="footer">
+<footer class="footer">
 	<nav class="navbar navbar-bottom navbar-expand my-0 pt-2 pb-2 navbar-dark bg-dark text-center border-bottom-0 border-left-0 border-right-0 border-primary">
 		<span class="navbar-text text-center mx-auto my-0 pt-2 pb-2 text-decoration-none"><i class="fas fa-copyright"></i> Avneet Singh, Naveen Gupta - Systems Programming Lab, 2019</span>
 	</nav>
-</div>
+</footer>
 <!-- <script defer src="/static/js/clipboard.js" crossorigin="anonymous"></script> --> 
 <script src="/static/js/custom.js" crossorigin="anonymous"></script>
 </body>

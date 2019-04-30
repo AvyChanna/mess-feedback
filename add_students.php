@@ -1,5 +1,24 @@
-<?php session_start(); ?>
-<!doctype html>
+<?php
+$_SESSION['message']='';
+$mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
+if($_SERVER['REQUEST_METHOD']=='POST'){
+	if($_POST['password']==$_POST['confpassword']){
+		$username = $mysqli->real_escape_string($_POST['username']);
+		$fullname = $mysqli->real_escape_string($_POST['name']);
+		$mess = $mysqli->real_escape_string($_POST['mess']);
+		$rollno = $mysqli->real_escape_string($_POST['rollno']);
+		$rollno = (int)$rollno;
+		//$password = md5($_POST['password']);
+		$password = $mysqli->real_escape_string($_POST['password']);
+		$sql = "INSERT INTO users (username, `name`, rollno, passwordhash, mess)". "Values ('".$username."', '".$fullname."', ".$rollno.", '".$password."', '".$mess."')";
+
+		if ($mysqli->query($sql)==true){
+			$_SESSION['message']= 'Registration successful';
+			header('location: #');
+		} else die($mysqli->error);
+	}
+}
+?><!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -20,8 +39,8 @@
 				<ul class="navbar-nav mr-auto"> 
 					<li class="nav-item"> <a class="nav-link" href="/admin.php">Home</a> </li> 
 					<li class="nav-item"> <a class="nav-link" href="/add_remove_update_mess.php">View Mess</a> </li> 
-					<li class="nav-item active"> <a class="nav-link" href="#">Add Users<span class="sr-only">(current)</span></a> </li> 
-					<li class="nav-item"> <a class="nav-link" href="/remove_users.php">Remove Users</a> </li>
+					<li class="nav-item active"> <a class="nav-link" href="#">Add Students<span class="sr-only">(current)</span></a> </li> 
+					<li class="nav-item"> <a class="nav-link" href="/remove_students.php">Remove Students</a> </li>
 					<li class="nav-item"> <a class="nav-link" href="/add_remove_keywords.php">Edit Keywords</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="/admin_change_password.php">Change Password</a> </li> 
 				</ul> 
@@ -37,6 +56,49 @@
 		<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5"> 
 			<!-- TODO add signup api uri -->
 			<form action="#" method="POST">
+			<div class="form-group">
+				<label for="name">FullName:</label>
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="username">Username:</label>
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
+						<div class="input-group-append bg-dark"> <span class="input-group-text" >@iitg.ac.in</span> </div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="rollno">Roll Number:</label>
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" id="rollno" placeholder="Enter username" name="rollno" required>
+					</div>
+				</div>
+							<!-- TODO mess dropdown here here-->
+				<div class="form-group">
+					<label for="mess">Current Mess:</label>
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" id="mess" placeholder="Enter Mess" name="mess" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="password">Temporary Password:</label>
+					<div class="input-group mb-3">
+						<input type="password" class="form-control hide" id="password" placeholder="Enter temporary password" name="password" required>
+						<div id="password-toggle" class="input-group-append"><span class="fas input-group-text fa-eye-slash"></span></div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="confpassword">Confirm Temporary Password:</label>
+					<div class="input-group mb-3">
+						<input type="password" class="form-control hide" id="confpassword" placeholder="Confirm temporary password" name="confpassword" required>
+					</div>
+				</div>
+				<div class="row text-center">
+					<button type="submit" class="mx-auto px-5 mt-3 btn btn-primary">Add</button>
+				</div>
+			</form>
 	</div>
 </div>
 <div class="footer">
@@ -46,5 +108,6 @@
 </div>
 <!-- <script defer src="/static/js/clipboard.js" crossorigin="anonymous"></script> --> 
 <script src="/static/js/customuser.js" crossorigin="anonymous"></script>
+<script src="/static/js/custom.js" crossorigin="anonymous"></script>
 </body>
 </html>

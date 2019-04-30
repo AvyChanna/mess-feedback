@@ -11,6 +11,8 @@
 <script src="/static/js/popper.js" crossorigin="anonymous"></script>
 <script src="/static/js/bootstrap.js" crossorigin="anonymous"></script>
 <title>Mess Feedback Portal</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="header">
@@ -36,7 +38,15 @@
         <div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5"><hr></div>
 		<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5"> 
 			<!-- TODO add signup api uri -->
-			<form action="#" method="POST">
+			<!-- <form action="#" method="POST"> -->
+			<div class="form-group">
+				<div class="input-group">
+					<input type="text" name="search_text" id="search_text" placeholder="Search by Student Details" class="form-control" />
+					<div class="input-group-append bg-dark"> <span class="input-group-text" >Search</span> </div>
+				</div>
+			</div>
+		</div>
+		<div id="result"></div>
 	</div>
 </div>
 <div class="footer">
@@ -46,5 +56,53 @@
 </div>
 <!-- <script defer src="/static/js/clipboard.js" crossorigin="anonymous"></script> --> 
 <script src="/static/js/customuser.js" crossorigin="anonymous"></script>
+<script src="/static/js/custom.js" crossorigin="anonymous"></script>
 </body>
 </html>
+<script>
+$(document).ready(function(){
+	function load_data(query)
+	{
+		$.ajax({
+		url:"/fetch.php",
+		method:"POST",
+		data:{query:query},
+		success:function(data)
+		{
+			$('#result').html(data);
+		}
+		});
+	}
+	load_data();
+
+	$('#search_text').keyup(function(){
+		var search = $(this).val();
+		if(search != '')
+		{
+			load_data(search);
+		}
+		else
+		{
+			load_data();
+		}
+	});
+	$(document).on('click', '.delete_btn', function(){  
+		var id=$(this).data("id3"); 
+		alert(data);  
+		if(confirm("Are you sure you want to delete this?"))  
+		{  
+			$.ajax({  
+					url:"/delete.php",  
+					method:"POST",  
+					data:{id:id},  
+					dataType:"text",  
+					success:function(data)
+					{  
+						alert(data);  
+						load_data();  
+					}  
+			});  
+		}  
+	});
+});
+</script>

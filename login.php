@@ -52,7 +52,7 @@ if(  (isset($_SESSION["loggedin"]))   &&   ($_SESSION["loggedin"]=true)){
 					<label for="pwd">Password:</label>
 					<div class="input-group mb-3">
 						<input type="password" class="form-control hide" id="password" placeholder="Enter password" name="password" required>
-						<div id="password-toggle" class="input-group-append"><span class="fas input-group-text fa-eye"></span></div>
+						<div id="password-toggle" class="input-group-append"><span class="fas input-group-text fa-eye-slash"></span></div>
 					</div>
 				</div>
 				<div class="row text-center">

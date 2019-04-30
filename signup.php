@@ -68,13 +68,13 @@ session_start ();
 					<label for="password">Password:</label>
 					<div class="input-group mb-3">
 						<input type="password" class="form-control hide" id="password" placeholder="Enter password" name="password" required>
-						<div id="password-toggle" class="input-group-append"><span class="fas input-group-text fa-eye"></span></div>
+						<div id="password-toggle" class="input-group-append"><span class="fas input-group-text fa-eye-slash"></span></div>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="confpassword">Confirm Password:</label>
 					<div class="input-group mb-3">
-						<input type="password" class="form-control hide" id="confpassword" placeholder="Enter password" name="confpassword" required>
+						<input type="password" class="form-control hide" id="confpassword" placeholder="Confirm password" name="confpassword" required>
 					</div>
 				</div>
 				<div class="row text-center">
@@ -83,7 +83,7 @@ session_start ();
 			</form>
 			<br>
 			<!-- TODO register here-->
-			<div class="container-fluid text-center"> <a href="/login.html" class="pb-5">Already have an account? Login Here</a> </div>
+			<div class="container-fluid text-center"> <a href="/login.php" class="pb-5">Already have an account? Login Here</a> </div>
 		</div>
 	</div>
 </div>

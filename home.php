@@ -12,7 +12,7 @@ if(  (!isset($_SESSION["loggedin"]))   ||   ($_SESSION["loggedin"]=false)){
     {
         header("Location: manager.php");
     }
-    if($_SESSION["status"]=="user")
+    if($_SESSION["status"]=="student")
     {
         header("Location: student.php");
     }

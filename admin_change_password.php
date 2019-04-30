@@ -1,4 +1,17 @@
-<?php session_start(); ?>
+<?php session_start(); 
+if(  (isset($_SESSION["loggedin"]))&&($_SESSION["loggedin"]=true)&&isset($_POST['oldpassword'])&&($_SESSION['password']==$_POST['oldpassword'])){
+    $mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
+	if($_SERVER['REQUEST_METHOD']=='POST'){
+		//$password = md5($_POST['password']);
+		if($_POST['newpassword']==$_POST['confpassword'])
+		{
+			$sql = "UPDATE users SET passwordhash='".$_POST['newpassword']."' WHERE username='".$_SESSION['username']."'";
+			$result = $mysqli->query( $sql);
+			$_SESSION['password']=$_POST['confpassword'];
+		} else die($mysqli->error);
+	}
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -41,21 +54,21 @@
 					<label for="oldpassword">Old Password:</label>
 					<div class="input-group mb-3">
 						<input type="password" class="form-control hide" id="oldpassword" placeholder="Enter old password" name="oldpassword" required>
-						<div id="oldpassword-toggle" class="input-group-append"><span class="fas input-group-text fa-eye"></span></div>
+						<div id="oldpassword-toggle" class="input-group-append"><span class="fas input-group-text fa-eye-slash"></span></div>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="newpassword">New Password:</label>
 					<div class="input-group mb-3">
 						<input type="password" class="form-control hide" id="newpassword" placeholder="Enter new password" name="newpassword" required>
-						<div id="newpassword-toggle" class="input-group-append"><span class="fas input-group-text fa-eye"></span></div>
+						<div id="newpassword-toggle" class="input-group-append"><span class="fas input-group-text fa-eye-slash"></span></div>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="confpassword">Confirm Password:</label>
 					<div class="input-group mb-3">
 						<input type="password" class="form-control hide" id="confpassword" placeholder="Confirm new password" name="confpassword" required>
-						<div id="confpassword-toggle" class="input-group-append"><span class="fas input-group-text fa-eye"></span></div>
+						<div id="confpassword-toggle" class="input-group-append"><span class="fas input-group-text fa-eye-slash"></span></div>
 					</div>
 				</div>
 				<div class="row text-center">

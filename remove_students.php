@@ -12,7 +12,7 @@
 <script src="/static/js/bootstrap.js" crossorigin="anonymous"></script>
 <title>Mess Feedback Portal</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 </head>
 <body>
 <div class="header">
@@ -34,7 +34,7 @@
 </div>
 <div class="container-fluid main page">
 	<div class="text-light pt-5 pb-5 pb-md-0">
-		<h1 class="text-center display-5 pt-2">Mess Management Login</h1>
+		<h1 class="text-center display-5 pt-2">Remove Students</h1>
         <div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5"><hr></div>
 		<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5"> 
 			<!-- TODO add signup api uri -->
@@ -86,19 +86,17 @@ $(document).ready(function(){
 			load_data();
 		}
 	});
-	$(document).on('click', '.delete_btn', function(){  
-		var id=$(this).data("id3"); 
-		alert(data);  
+	$(document).on('click', '.btn_delete', function(){ 
+		var id=$(this).data("id5"); 
 		if(confirm("Are you sure you want to delete this?"))  
 		{  
 			$.ajax({  
-					url:"/delete.php",  
+					url:"delete.php",  
 					method:"POST",  
 					data:{id:id},  
 					dataType:"text",  
 					success:function(data)
 					{  
-						alert(data);  
 						load_data();  
 					}  
 			});  

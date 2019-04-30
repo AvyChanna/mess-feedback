@@ -1,4 +1,24 @@
-<?php session_start(); ?>
+<?php
+$_SESSION['message']='';
+$mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
+if($_SERVER['REQUEST_METHOD']=='POST'){
+	if($_POST['password']==$_POST['confpassword']){
+		$username = $mysqli->real_escape_string($_POST['username']);
+		$fullname = $mysqli->real_escape_string($_POST['name']);
+		$mess = $mysqli->real_escape_string($_POST['mess']);
+		$rollno = $mysqli->real_escape_string($_POST['rollno']);
+		$rollno = (int)$rollno;
+		//$password = md5($_POST['password']);
+		$password = $mysqli->real_escape_string($_POST['password']);
+		$sql = "INSERT INTO users (username, `name`, rollno, passwordhash, mess)". "Values ('".$username."', '".$fullname."', ".$rollno.", '".$password."', '".$mess."')";
+
+		if ($mysqli->query($sql)==true){
+			$_SESSION['message']= 'Registration successful';
+			header('location: #');
+		} else die($mysqli->error);
+	}
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -25,9 +45,9 @@
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item"> <a class="nav-link" href="/admin.php">Home</a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/add_remove_update_mess.php">View Mess</a> </li>
-						<li class="nav-item active"> <a class="nav-link" href="#">Add Users<span
+						<li class="nav-item active"> <a class="nav-link" href="#">Add Students<span
 									class="sr-only">(current)</span></a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/remove_users.php">Remove Users</a> </li>
+						<li class="nav-item"> <a class="nav-link" href="/remove_students.php">Remove Students</a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/add_remove_keywords.php">Edit Keywords</a>
 						</li>
 						<li class="nav-item"> <a class="nav-link" href="/admin_change_password.php">Change Password</a>

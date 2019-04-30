@@ -1,6 +1,18 @@
 <?php session_start(); 
-
+if(  (isset($_SESSION["loggedin"]))&&($_SESSION["loggedin"]=true)&&isset($_POST['oldpassword'])&&($_SESSION['password']==$_POST['oldpassword'])){
+    $mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
+	if($_SERVER['REQUEST_METHOD']=='POST'){
+		//$password = md5($_POST['password']);
+		if($_POST['newpassword']==$_POST['confpassword'])
+		{
+			$sql = "UPDATE users SET passwordhash='".$_POST['newpassword']."' WHERE username='".$_SESSION['username']."'";
+			$result = $mysqli->query( $sql);
+			$_SESSION['password']=$_POST['confpassword'];
+		} else die($mysqli->error);
+	}
+}
 ?>
+
 <!doctype html>
 <html lang="en">
 

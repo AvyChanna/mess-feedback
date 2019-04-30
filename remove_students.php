@@ -10,6 +10,7 @@
 	<script src="/static/js/jquery.js" crossorigin="anonymous"></script>
 	<script src="/static/js/popper.js" crossorigin="anonymous"></script>
 	<script src="/static/js/bootstrap.js" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<title>Mess Feedback Portal</title>
 </head>
 
@@ -46,8 +47,15 @@
 				</div>
 				<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5">
 					<!-- TODO add signup api uri -->
-					<form action="#" method="POST">
+					<div class="form-group">
+						<div class="input-group">
+							<input type="text" name="search_text" id="search_text"
+								placeholder="Search by Student Details" class="form-control" />
+							<div class="input-group-append bg-dark"> <span class="input-group-text">Search</span> </div>
+						</div>
+					</div>
 				</div>
+				<div id="result"></div>
 			</div>
 		</div>
 	</div>
@@ -57,6 +65,48 @@
 	</footer>
 	<!-- <script defer src="/static/js/clipboard.js" crossorigin="anonymous"></script> -->
 	<script src="/static/js/logout_button.js" crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function () {
+			function load_data(query) {
+				$.ajax({
+					url: "/fetch.php",
+					method: "POST",
+					data: {
+						query: query
+					},
+					success: function (data) {
+						$('#result').html(data);
+					}
+				});
+			}
+			load_data();
+
+			$('#search_text').keyup(function () {
+				var search = $(this).val();
+				if (search != '') {
+					load_data(search);
+				} else {
+					load_data();
+				}
+			});
+			$(document).on('click', '.btn_delete', function () {
+				var id = $(this).data("id5");
+				if (confirm("Are you sure you want to delete this?")) {
+					$.ajax({
+						url: "delete.php",
+						method: "POST",
+						data: {
+							id: id
+						},
+						dataType: "text",
+						success: function (data) {
+							load_data();
+						}
+					});
+				}
+			});
+		});
+	</script>
 </body>
 
 </html>

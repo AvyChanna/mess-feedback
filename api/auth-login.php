@@ -19,15 +19,18 @@ if(  (!isset($_SESSION["loggedin"]))   ||   ($_SESSION["loggedin"]==false)){
 					$_SESSION["name"]=$row["name"];
 					$_SESSION["rollno"]=$row["rollno"];
 					$_SESSION["mess"]=$row["mess"];
+					$_SESSION["password"]=$row["passwordhash"];
 					header('location: ../home.php');
+					die();
 				}
-			} else header('location: ../login.php');
+			} else {header('location: ../login.php'); die();}
 			//mysqli_close($mysqli);
-		} else die($mysqli->error);
+		} else 
+		{header('location: ../login.php');die($mysqli->error);}
 	}
-    die();
 } else if(  (isset($_SESSION["loggedin"]))   &&   ($_SESSION["loggedin"]==true)){
     header('Location: ../home.php');
     die();
 }
+header('location: ../login.php');die();
 ?>

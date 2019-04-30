@@ -1,21 +1,20 @@
-<?php session_start(); 
-if(  (isset($_SESSION["loggedin"]))&&($_SESSION["loggedin"]=true)&&isset($_POST['oldpassword'])&&($_SESSION['password']==$_POST['oldpassword'])){
+<?php session_start();
+if(  (isset($_SESSION["loggedin"]))&&($_SESSION["loggedin"]=true)&&isset($_POST['oldpassword']) &&($_SESSION['password']==$_POST['oldpassword'])){
     $mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		//$password = md5($_POST['password']);
 		if($_POST['newpassword']==$_POST['confpassword'])
 		{
 			$sql = "UPDATE users SET passwordhash='".$_POST['newpassword']."' WHERE username='".$_SESSION['username']."'";
-			$result = $mysqli->query( $sql);
+			if(!$mysqli->query( $sql)){header("location: student_change_password.php");die();}
 			$_SESSION['password']=$_POST['confpassword'];
-		} else die($mysqli->error);
+		} else {header("location: student_change_password.php");die();}
 	}
 }
 ?>
 
 <!doctype html>
 <html lang="en">
-
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />

@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 			$_SESSION['message']= 'Registration successful';
 			header('location: #');
 		} else die($mysqli->error);
-	}
+	} else header('location: #');
 }
 ?>
 <!doctype html>
@@ -46,6 +46,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 						<li class="nav-item"> <a class="nav-link" href="/admin.php">Home</a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/add_mess.php">Add Mess</a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/add_remove_update_mess.php">Remove Mess</a> </li>
+						<li class="nav-item"> <a class="nav-link" href="/update_mess.php">Update Mess</a> </li>
 						<li class="nav-item active"> <a class="nav-link" href="#">Add Students<span
 									class="sr-only">(current)</span></a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/remove_students.php">Remove Students</a> </li>

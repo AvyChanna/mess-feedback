@@ -27,6 +27,7 @@
                                     class="sr-only">(current)</span></a> </li>
                         <li class="nav-item"> <a class="nav-link" href="/add_mess.php">Add Mess</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="/add_remove_update_mess.php">Remove Mess</a> </li>
+						<li class="nav-item"> <a class="nav-link" href="/update_mess.php">Update Mess</a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/add_students.php">Add Students</a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/remove_students.php">Remove Students</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="/add_keywords.php">Add Keywords</a> </li>

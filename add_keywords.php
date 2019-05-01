@@ -40,7 +40,7 @@
 	</div>
 <div class="container-fluid main page">
 	<div class="text-light pt-5 pb-5 pb-md-0">
-		<h1 class="text-center display-5 pt-2">Mess Management Signup</h1>
+		<h1 class="text-center display-5 pt-2">Add Keywords</h1>
 		<div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5"><hr></div>
 		<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5"> 
 			<form action="/api/add_word.php" method="POST">
@@ -57,7 +57,7 @@
 				</div>
 			</div>
 			<div class="row text-center">
-				<button type="submit" class="mx-auto px-5 mt-3 btn btn-primary">ADD Keyword</button>
+				<button type="submit" class="mx-auto px-5 mt-3 btn btn-primary">ADD</button>
 			</div>
 			</form>
 			<br>

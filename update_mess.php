@@ -73,7 +73,7 @@
 				</div>
 			</div>
 			<div class="row text-center">
-				<button type="submit" class="mx-auto px-5 mt-3 btn btn-primary">ADD Mess</button>
+				<button type="submit" class="mx-auto px-5 mt-3 btn btn-primary">UPDATE</button>
 			</div>
 			</form>
 			<br>

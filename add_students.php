@@ -62,7 +62,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 		</div>
 		<div class="container-fluid main page">
 			<div class="text-light pt-5 pb-5 pb-md-0">
-				<h1 class="text-center display-5 pt-2">Mess Management Login</h1>
+				<h1 class="text-center display-5 pt-2">Add Students</h1>
 				<div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5">
 					<hr>
 				</div>

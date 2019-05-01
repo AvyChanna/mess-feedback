@@ -35,7 +35,7 @@ if(mysqli_num_rows($result) > 0)
     <td class="mess" data-id1="'.$row["id"].'">'.$row["mess"].'</td>
     <td class="mess_manager" data-id2="'.$row["id"].'">'.$row["name"].'</td>
     <td class="mobileno" data-id3="'.$row["id"].'">'.$row["rollno"].'</td>
-    <td class="text-center px-0" ><button type="button" name="delete_btn" data-id4="'.$row["id"].'" class="btn btn-primary btn_delete button-xs px-3 py-1 mx-1">DELETE</button></td>
+    <td class="text-center px-0" ><button type="button" name="delete_btn" data-id4="'.$row["id"].'" class="btn btn-primary btn_delete button-xs px-3 py-1 mx-1">REMOVE</button></td>
     </tr>
     ';
     }

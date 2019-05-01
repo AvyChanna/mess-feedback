@@ -37,10 +37,12 @@ if(  (isset($_SESSION["loggedin"]))&&($_SESSION["loggedin"]=true)&&isset($_POST[
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item"> <a class="nav-link" href="/admin.php">Home</a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/add_remove_update_mess.php">View Mess</a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/add_students.php">Add Students</a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/remove_students.php">Remove Students</a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/add_remove_keywords.php">Edit Keywords</a>
+						<li class="nav-item"> <a class="nav-link" href="/add_mess.php">Add Mess</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="/add_remove_update_mess.php">Remove Mess</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="/add_students.php">Add Students</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="/remove_students.php">Remove Students</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="/add_keywords.php">Add Keywords</a> </li>
+						<li class="nav-item"> <a class="nav-link" href="/add_remove_keywords.php">Remove Keywords</a>
 						</li>
 						<li class="nav-item active"> <a class="nav-link" href="#">Change Password<span
 									class="sr-only">(current)</span></a> </li>

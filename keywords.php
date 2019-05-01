@@ -20,11 +20,9 @@ if(mysqli_num_rows($result) > 0)
 	<table class="table table-bordered table-sm col-lg-10 offset-lg-1 table-hover" style="table-layout: auto;">
 	<thead>
     <tr class="table-secondary">
-    <th style="width: 1px;white-space: nowrap;">Keyword ID</th>
     <th>Keyword</th>
     <th>Rating</th>
     <th style="width: 1px;white-space: nowrap;">Remove Keyword</th>
-	<th style="width: 1px;white-space: nowrap;">Edit Keyword</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -33,11 +31,9 @@ if(mysqli_num_rows($result) > 0)
     {
 	$output .= '
     <tr>
-    <td >'.$row["id"].'</td>
     <td class="word" data-id1="'.$row["id"].'">'.$row["word"].'</td>
     <td class="rating" data-id2="'.$row["id"].'">'.$row["rating"].'</td>
     <td class="text-center px-0" ><button type="button" name="delete_btn" data-id3="'.$row["id"].'" class="btn btn-primary btn_delete button-xs px-3 py-1 mx-1">Remove</button></td>
-    <td class="text-center px-0" ><button type="button" name="delete_btn" data-id4="'.$row["id"].'" class="btn btn-primary btn_delete button-xs px-3 py-1 mx-1">Edit</button></td>
     </tr>
     ';
     }

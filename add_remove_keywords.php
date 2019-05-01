@@ -24,10 +24,12 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item"> <a class="nav-link" href="/admin.php">Home</a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/add_remove_update_mess.php">View Mess</a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/add_students.php">Add students</a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/remove_students.php">Remove students</a> </li>
-						<li class="nav-item active"> <a class="nav-link" href="#">Edit Keywords<span
+						<li class="nav-item"> <a class="nav-link" href="/add_mess.php">Add Mess</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="/add_remove_update_mess.php">Remove Mess</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="/add_students.php">Add Students</a> </li>
+						<li class="nav-item"> <a class="nav-link" href="/remove_students.php">Remove Students</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="/add_keywords.php">Add Keywords</a> </li>
+                        <li class="nav-item active"> <a class="nav-link" href="#">Remove Keywords<span
 									class="sr-only">(current)</span></a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/admin_change_password.php">Change Password</a>
 						</li>
@@ -51,9 +53,9 @@
 								placeholder="Search by Keywords" class="form-control" />
 							<div class="input-group-append bg-dark"> <span class="input-group-text">Search</span> </div>
 						</div>
-					</div>
+                    </div>
 				</div>
-				<div id="result"></div>
+                <div id="result"></div>
 			</div>
 		</div>
 	</div>
@@ -64,7 +66,7 @@
 	<!-- <script defer src="/static/js/clipboard.js" crossorigin="anonymous"></script> -->
 	<script src="/static/js/logout_button.js" crossorigin="anonymous"></script>
     <script>
-		$(document).ready(function () {
+		$(function () {
 			function load_data(query) {
 				$.ajax({
 					url: "/keywords.php",
@@ -74,33 +76,33 @@
 					},
 					success: function (data) {
 						$('#result').html(data);
+						$(".btn_delete").click(function (){
+							var id = $(this).data("id3");
+							console.log("hello");
+							if (confirm("Are you sure you want to delete this?")) {
+								$.ajax({
+									url: "/delete_keywords.php",
+									method: "POST",
+									data: {
+										id: id
+									},
+									dataType: "text",
+									success: function (data) {
+										load_data();
+									}
+								});
+							}
+						});
 					}
 				});
 			}
 			load_data();
-
 			$('#search_text').keyup(function () {
 				var search = $(this).val();
 				if (search != '') {
 					load_data(search);
 				} else {
 					load_data();
-				}
-			});
-			$(document).on('click', '.btn_delete', function () {
-				var id = $(this).data("id5");
-				if (confirm("Are you sure you want to delete this?")) {
-					$.ajax({
-						url: "delete.php",
-						method: "POST",
-						data: {
-							id: id
-						},
-						dataType: "text",
-						success: function (data) {
-							load_data();
-						}
-					});
 				}
 			});
 		});

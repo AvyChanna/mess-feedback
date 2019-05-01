@@ -24,11 +24,13 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item"> <a class="nav-link" href="/admin.php">Home</a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/add_remove_update_mess.php">View Mess</a> </li>
+						<li class="nav-item"> <a class="nav-link" href="/add_mess.php">Add Mess</a> </li>
+						<li class="nav-item"> <a class="nav-link" href="/add_remove_update_mess.php">Remove Mess</a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/add_students.php">Add Students</a> </li>
 						<li class="nav-item active"> <a class="nav-link" href="#">Remove Students<span
-									class="sr-only">(current)</span></a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/add_remove_keywords.php">Edit Keywords</a>
+						class="sr-only">(current)</span></a> </li>
+						<li class="nav-item"> <a class="nav-link" href="/add_keywords.php">Add Keywords</a> </li>
+						<li class="nav-item"> <a class="nav-link" href="/add_remove_keywords.php">Remove Keywords</a>
 						</li>
 						<li class="nav-item"> <a class="nav-link" href="/admin_change_password.php">Change Password</a>
 						</li>
@@ -96,7 +98,7 @@
 				});
 			}
 			load_data();
-			$('#search_text').change(function () {
+			$('#search_text').keyup(function () {
 				var search = $(this).val();
 				if (search != '') {
 					load_data(search);

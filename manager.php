@@ -35,13 +35,35 @@
 		</div>
 		<div class="container-fluid main page">
 			<div class="text-light pt-5 pb-5 pb-md-0">
-				<h1 class="text-center display-5 pt-2">Mess Management Login</h1>
+				<h1 class="text-center display-5 pt-2">Monthly Mess Report</h1>
 				<div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5">
 					<hr>
 				</div>
 				<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5">
-					<!-- TODO add signup api uri -->
-					<form action="#" method="POST">
+				<?php 
+				$mysqli2 = new mysqli("localhost", "root", "", "mess");
+				if ($resul = $mysqli2->query("select mess from mess"))
+				while($ro = $resul->fetch_assoc())
+				{
+					$rating = (float)0.0;
+					$count = (int)0;
+					$mysqli = new mysqli("localhost", "root", "", "mess");
+					$mess=mysqli_escape_string($mysqli, $ro['mess']);
+					if ($result = $mysqli->query("SELECT rating FROM feedbacks where mess = '".$mess."' and MONTH(`date`) = MONTH(CURRENT_DATE()) AND YEAR(`date`) = YEAR(CURRENT_DATE())"))
+					{	while ($row = $result->fetch_assoc()) {
+							$rating = (float)$rating + (float)$row['rating'];
+							$count = $count + 1;
+						}
+						$result->free();
+						$mysqli->close();
+					}
+					if ($count == 0)
+						$rating = 5;
+					else
+						$rating = (float)$rating / $count;
+						echo '<div class="card"><div class="card-body"><p class="card-text">Mess = <b>'.$mess.'</b></p><p class="card-text">Current Rating = <b>'.$rating.'</b></p></div></div>';
+				}
+				?>
 				</div>
 			</div>
 		</div>

@@ -41,8 +41,6 @@ if(  (isset($_SESSION["loggedin"]))&&($_SESSION["loggedin"]=true)&&isset($_POST[
 								Upcoming Month</a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/student_new_feedback.php">Provide New
 								Feedback</a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/student_previous_feedback.php">View Previous
-								Feedbacks</a> </li>
 						<li class="nav-item active"> <a class="nav-link" href="#">Change Password<span
 									class="sr-only">(current)</span></a></li>
 					</ul>

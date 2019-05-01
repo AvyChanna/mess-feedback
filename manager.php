@@ -24,7 +24,9 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active"> <a class="nav-link" href="#">Home<span
-									class="sr-only">(current)</span></a> </li>
+                                    class="sr-only">(current)</span></a> </li>
+						<li class="nav-item"> <a class="nav-link" href="/previous_month_feedback.php">View Last Month
+								Feedbacks</a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/view_notice.php">View Notices</a> </li>
 					</ul>
 					<!-- TODO Logged in already? Display Logout  -->

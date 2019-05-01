@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]=="t")
+{
+	header("location: /home.php");die();
+}
 ?>
 
 <!doctype html>
@@ -26,7 +30,6 @@ session_start();
         <div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5"><hr></div>
 		<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5"> 
 		<?php
-			$_SESSION['message']='';
 			$mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
 			if($_SERVER['REQUEST_METHOD']=='POST'){
 				if($_POST['password']==$_POST['confpassword']){
@@ -40,10 +43,10 @@ session_start();
 					$sql = "INSERT INTO users (username, `name`, rollno, passwordhash, mess)". "Values ('".$username."', '".$fullname."', ".$rollno.", '".$password."', '".$mess."')";
 
 					if ($mysqli->query($sql)){
-						$_SESSION['message']= 'Registration successful';
 						header('location: ../login.php');
-					} else echo("Username or Roll No already exist");
-				} else echo("Password does not match");
+						die();
+					} else echo  '<div class="text-danger h5 text-center">Username or Roll No already exist</div>';
+				} else echo  '<div class="text-danger h5 text-center">Passwords do not match</div>';
 			}
 			?>
 			<form action="#" method="POST">

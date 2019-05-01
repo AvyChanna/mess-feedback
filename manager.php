@@ -1,4 +1,13 @@
-<?php session_start(); ?>
+<?php session_start();
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"]=="f")
+{
+	header("location: /login.php");die();
+}
+if($_SESSION["status"]!="manager")
+{
+	header("location: /home.php");die();
+} 
+?>
 <!doctype html>
 <html lang="en">
 

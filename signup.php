@@ -1,5 +1,5 @@
 <?php
-session_start ();
+session_start();
 ?>
 
 <!doctype html>
@@ -36,8 +36,28 @@ session_start ();
 		<h1 class="text-center display-5 pt-2">Mess Management Signup</h1>
         <div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5"><hr></div>
 		<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5"> 
-			<!-- TODO add signup api uri -->
-			<form action="/api/auth-signup.php" method="POST">
+		<?php
+			$_SESSION['message']='';
+			$mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
+			if($_SERVER['REQUEST_METHOD']=='POST'){
+				if($_POST['password']==$_POST['confpassword']){
+					$username = $mysqli->real_escape_string($_POST['username']);
+					$fullname = $mysqli->real_escape_string($_POST['name']);
+					$mess = $mysqli->real_escape_string($_POST['mess']);
+					$rollno = $mysqli->real_escape_string($_POST['rollno']);
+					$rollno = (int)$rollno;
+					//$password = md5($_POST['password']);
+					$password = $mysqli->real_escape_string($_POST['password']);
+					$sql = "INSERT INTO users (username, `name`, rollno, passwordhash, mess)". "Values ('".$username."', '".$fullname."', ".$rollno.", '".$password."', '".$mess."')";
+
+					if ($mysqli->query($sql)){
+						$_SESSION['message']= 'Registration successful';
+						header('location: ../login.php');
+					} else echo("Username or Roll No already exist");
+				} else echo("Password does not match");
+			}
+			?>
+			<form action="#" method="POST">
 			<div class="form-group">
 				<label for="name">FullName:</label>
 					<div class="input-group mb-3">
@@ -83,6 +103,8 @@ session_start ();
 					<label for="confpassword">Confirm Password:</label>
 					<div class="input-group mb-3">
 						<input type="password" class="form-control hide" id="confpassword" placeholder="Confirm password" name="confpassword" required>
+						<div id="password-toggle2" class="input-group-append"><span
+										class="fas input-group-text fa-eye-slash"></span></div>
 					</div>
 				</div>
 				<div class="row text-center">
@@ -100,6 +122,6 @@ session_start ();
 	</nav>
 </div>
 <!-- <script defer src="/static/js/clipboard.js" crossorigin="anonymous"></script> --> 
-<script src="/static/js/custom.js" crossorigin="anonymous"></script>
+<script src="/static/js/login.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -32,7 +32,7 @@ if(mysqli_num_rows($result) > 0)
     <tr>
     <td class="word" data-id1="'.$row["id"].'">'.$row["word"].'</td>
     <td class="rating" data-id2="'.$row["id"].'">'.$row["rating"].'</td>
-    <td class="text-center px-0" ><button type="button" name="delete_btn" data-id3="'.$row["id"].'" class="btn btn-primary btn_delete button-xs px-3 py-1 mx-1">Remove</button></td>
+    <td class="text-center px-0" ><button type="button" name="delete_btn" data-id3="'.$row["id"].'" class="btn btn-primary btn_delete button-xs px-3 py-1 mx-1">REMOVE</button></td>
     </tr>
     ';
     }

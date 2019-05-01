@@ -73,8 +73,8 @@ if($_SESSION["status"]!="admin")
 					
 							if ($mysqli->query($sql)){
 								$_SESSION['message']= 'Registration successful';
-							} else echo("Student with entered username or roll no. already exist");
-						} else echo("Passwords don't match");
+							} else echo '<div class="text-danger h5 text-center">Student with entered username or roll no. already exist</div>';
+						} else echo '<div class="text-danger h5 text-center">Passwords do not match</div>';
 					}
 					?>
 					<form action="#" method="POST">

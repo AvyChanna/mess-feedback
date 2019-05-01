@@ -60,7 +60,7 @@ if($_SESSION["status"]!="admin")
 				
 						if ($mysqli->query($sql)){
 							echo 'Keyword Added';
-						} else echo("Keyword already exist");
+						} else '<div class="text-danger h5 text-center">Keyword already exist</div>';
 				}
 			?>
 			<form action="#" method="POST">

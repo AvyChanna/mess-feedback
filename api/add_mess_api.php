@@ -1,5 +1,5 @@
 <?php
-$_SESSION['message']='';
+session_start();
 $mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
 if($_SERVER['REQUEST_METHOD']=='POST'){
 	if($_POST['password']==$_POST['confpassword']){

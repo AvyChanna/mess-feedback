@@ -1,5 +1,5 @@
-// sign up a user
 <?php
+session_start();
 $_SESSION['message']='';
 $mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
 if($_SERVER['REQUEST_METHOD']=='POST'){

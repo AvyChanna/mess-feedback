@@ -1,8 +1,8 @@
 <?php
 session_start();
 if(  (!isset($_SESSION["loggedin"]))   ||   ($_SESSION["loggedin"]=="f")){
-    $mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
 	if($_SERVER['REQUEST_METHOD']=='POST'){
+		$mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
 		$username = $mysqli->real_escape_string($_POST['username']);
 		//$password = md5($_POST['password']);
 		$password = $mysqli->real_escape_string($_POST['password']);

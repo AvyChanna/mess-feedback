@@ -61,13 +61,13 @@
 							</div>
 						</div>
 			<div class="form-group">
-				<label for="mess_manager">Mess Manager:</label>
+				<label for="mess_manager">New Mess Manager:</label>
 				<div class="input-group mb-3">
 					<input type="text" class="form-control" id="mess_manager" placeholder="Enter name of mess manager" name="mess_manager" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="manager_number">Mess Manager Mobile No.:</label>
+				<label for="manager_number">New Mess Manager Mobile No.:</label>
 				<div class="input-group mb-3">
 					<input type="text" class="form-control" id="manager_number" placeholder="Enter mobile number of mess manager" name="manager_number" required>
 				</div>

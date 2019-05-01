@@ -57,5 +57,4 @@
 	<!-- <script defer src="/static/js/clipboard.js" crossorigin="anonymous"></script> -->
 	<script src="/static/js/logout_button.js" crossorigin="anonymous"></script>
 </body>
-
 </html>

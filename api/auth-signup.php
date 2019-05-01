@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 			$_SESSION['message']= 'Registration successful';
 			header('location: ../login.php');
 		} else die($mysqli->error);
-	}
+	} else die("Password does not match");
 }
 ?>
 

@@ -56,7 +56,7 @@
 					$count = (int)0;
 					$mysqli = new mysqli("localhost", "root", "", "mess");
 					$mess=mysqli_escape_string($mysqli, $ro['mess']);
-					if ($result = $mysqli->query("SELECT rating FROM feedbacks where mess = '".$mess."' and MONTH(`date`) = MONTH(CURRENT_DATE()) AND YEAR(`date`) = YEAR(CURRENT_DATE())"))
+					if ($result = $mysqli->query("SELECT rating FROM feedbacks where mess = '".$mess."' and MONTH(`date`) = MONTH(CURRENT_DATE()-INTERVAL 1 MONTH) AND YEAR(`date`) = YEAR(CURRENT_DATE()-INTERVAL 1 MONTH)"))
 					{	while ($row = $result->fetch_assoc()) {
 							$rating = (float)$rating + (float)$row['rating'];
 							$count = $count + 1;

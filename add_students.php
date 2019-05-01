@@ -1,24 +1,5 @@
 <?php
 session_start();
-$_SESSION['message']='';
-$mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
-if($_SERVER['REQUEST_METHOD']=='POST'){
-	if($_POST['password']==$_POST['confpassword']){
-		$username = $mysqli->real_escape_string($_POST['username']);
-		$fullname = $mysqli->real_escape_string($_POST['name']);
-		$mess = $mysqli->real_escape_string($_POST['mess']);
-		$rollno = $mysqli->real_escape_string($_POST['rollno']);
-		$rollno = (int)$rollno;
-		//$password = md5($_POST['password']);
-		$password = $mysqli->real_escape_string($_POST['password']);
-		$sql = "INSERT INTO users (username, `name`, rollno, passwordhash, mess)". "Values ('".$username."', '".$fullname."', ".$rollno.", '".$password."', '".$mess."')";
-
-		if ($mysqli->query($sql)){
-			$_SESSION['message']= 'Registration successful';
-			header('location: #');
-		} else die($mysqli->error);
-	} else header('location: #');
-}
 ?>
 <!doctype html>
 <html lang="en">
@@ -68,6 +49,26 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 					<hr>
 				</div>
 				<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5">
+					<?php
+					$_SESSION['message']='';
+					$mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
+					if($_SERVER['REQUEST_METHOD']=='POST'){
+						if($_POST['password']==$_POST['confpassword']){
+							$username = $mysqli->real_escape_string($_POST['username']);
+							$fullname = $mysqli->real_escape_string($_POST['name']);
+							$mess = $mysqli->real_escape_string($_POST['mess']);
+							$rollno = $mysqli->real_escape_string($_POST['rollno']);
+							$rollno = (int)$rollno;
+							//$password = md5($_POST['password']);
+							$password = $mysqli->real_escape_string($_POST['password']);
+							$sql = "INSERT INTO users (username, `name`, rollno, passwordhash, mess)". "Values ('".$username."', '".$fullname."', ".$rollno.", '".$password."', '".$mess."')";
+					
+							if ($mysqli->query($sql)){
+								$_SESSION['message']= 'Registration successful';
+							} else echo("Student with entered username or roll no. already exist");
+						} else echo("Passwords don't match");
+					}
+					?>
 					<form action="#" method="POST">
 						<div class="form-group">
 							<label for="name">FullName:</label>
@@ -121,6 +122,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 							<div class="input-group mb-3">
 								<input type="password" class="form-control hide" id="confpassword"
 									placeholder="Confirm temporary password" name="confpassword" required>
+									<div id="password-toggle2" class="input-group-append"><span
+										class="fas input-group-text fa-eye-slash"></span></div>
 							</div>
 						</div>
 						<div class="row text-center">
@@ -135,7 +138,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 		<hr> <span class="text-center mx-auto my-0 py-0"><i class="fas fa-copyright"></i> Avneet Singh, Naveen
 			Gupta - Systems Programming Lab, 2019</span>
 	</footer>
-	<!-- <script defer src="/static/js/clipboard.js" crossorigin="anonymous"></script> -->
+	<script src="/static/js/login.js" crossorigin="anonymous"></script>
 	<script src="/static/js/logout_button.js" crossorigin="anonymous"></script>
 </body>
 

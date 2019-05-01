@@ -1,16 +1,4 @@
 <?php session_start(); 
-if(  (isset($_SESSION["loggedin"]))&&($_SESSION["loggedin"]=="t")&&isset($_POST['oldpassword'])&&($_SESSION['password']==$_POST['oldpassword'])){
-    $mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
-	if($_SERVER['REQUEST_METHOD']=='POST'){
-		//$password = md5($_POST['password']);
-		if($_POST['newpassword']==$_POST['confpassword'])
-		{
-			$sql = "UPDATE users SET passwordhash='".$_POST['newpassword']."' WHERE username='".$_SESSION['username']."'";
-			$result = $mysqli->query( $sql);
-			$_SESSION['password']=$_POST['confpassword'];
-		} else die($mysqli->error);
-	}
-}
 ?>
 <!doctype html>
 <html lang="en">
@@ -59,7 +47,20 @@ if(  (isset($_SESSION["loggedin"]))&&($_SESSION["loggedin"]=="t")&&isset($_POST[
 					<hr>
 				</div>
 				<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5">
-					<!-- TODO add signup api uri -->
+					<?php
+					if(  (isset($_SESSION["loggedin"]))&&($_SESSION["loggedin"]=="t")&&isset($_POST['oldpassword'])&&($_SESSION['password']==$_POST['oldpassword'])){
+						$mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
+						if($_SERVER['REQUEST_METHOD']=='POST'){
+							//$password = md5($_POST['password']);
+							if($_POST['newpassword']==$_POST['confpassword'])
+							{
+								$sql = "UPDATE users SET passwordhash='".$_POST['newpassword']."' WHERE username='".$_SESSION['username']."'";
+								$result = $mysqli->query( $sql);
+								$_SESSION['password']=$_POST['confpassword'];
+							} else echo("Password's don't match");
+						}
+					}else echo("Old password entered is not correct");
+					?>
 					<form action="#" method="POST">
 						<div class="form-group">
 							<label for="oldpassword">Old Password:</label>

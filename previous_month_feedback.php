@@ -59,7 +59,6 @@
 		<hr> <span class="text-center mx-auto my-0 py-0"><i class="fas fa-copyright"></i> Avneet Singh, Naveen
 			Gupta - Systems Programming Lab, 2019</span>
 	</footer>
-	<!-- <script defer src="/static/js/clipboard.js" crossorigin="anonymous"></script> -->
 	<script src="/static/js/logout_button.js" crossorigin="anonymous"></script>
 </body>
 

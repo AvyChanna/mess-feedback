@@ -47,7 +47,6 @@
 					<hr>
 				</div>
 				<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5">
-					<!-- TODO add signup api uri -->
 					<div class="form-group">
 						<div class="input-group">
 							<input type="text" name="search_text" id="search_text"
@@ -64,7 +63,6 @@
 		<hr> <span class="text-center mx-auto my-0 py-0"><i class="fas fa-copyright"></i> Avneet Singh, Naveen
 			Gupta - Systems Programming Lab, 2019</span>
 	</footer>
-	<!-- <script defer src="/static/js/clipboard.js" crossorigin="anonymous"></script> -->
 	<script src="/static/js/logout_button.js" crossorigin="anonymous"></script>
 	<script>
 		$(function () {

@@ -43,14 +43,16 @@
 					<hr>
 				</div>
 				<div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5">
-					<form action="#" method="POST">
+					<form action="/api/add-feedback.php" method="POST">
 						<div class="form-group">
 							<label for="feedbacktext">Currently subscribed mess =
-								<b><?php echo $_SESSION['mess'] ?></b></label>
+								<b><span class="text-capitalize"><?php echo $_SESSION['mess'] ?></span></b></label>
 							<textarea class="form-control z-depth-1" id="feedbacktext"
-								placeholder="Add feedback here..." rows="7"></textarea>
+								placeholder="Add feedback here..." name="feedback" rows="7"></textarea>
 						</div>
-
+						<div class="row text-center">
+							<button type="submit" class="mx-auto px-5 mt-3 btn btn-primary">Submit Feedback</button>
+						</div>
 					</form>
 				</div>
 			</div>

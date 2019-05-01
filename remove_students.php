@@ -75,7 +75,7 @@
 					},
 					success: function (data) {
 						$('#result').html(data);
-						$(".btn_delete").click(function (){
+						$(".btn_delete").click(function () {
 							var id = $(this).data("id5");
 							console.log("hello");
 							if (confirm("Are you sure you want to delete this?")) {
@@ -96,12 +96,14 @@
 				});
 			}
 			load_data();
-			$('#search_text').change(function () {
-				var search = $(this).val();
-				if (search != '') {
-					load_data(search);
-				} else {
-					load_data();
+			$('#search_text').keyup(function (e) {
+				if ([13, 16, 20, 37, 38, 39, 40, 91].indexOf(e.which) === -1) {
+					var search = $(this).val();
+					if (search != '') {
+						load_data(search);
+					} else {
+						load_data();
+					}
 				}
 			});
 		});

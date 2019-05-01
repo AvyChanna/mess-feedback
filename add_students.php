@@ -93,7 +93,6 @@ session_start();
 									name="rollno" required>
 							</div>
 						</div>
-						<!-- TODO mess dropdown here here-->
 						<div class="form-group">
 							<label for="mess">Current Mess:</label>
 							<div class="input-group mb-3">

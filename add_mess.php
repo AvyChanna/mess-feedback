@@ -34,7 +34,6 @@
 					<li class="nav-item"> <a class="nav-link" href="/admin_change_password.php">Change Password</a>
 					</li>
 				</ul>
-				<!-- TODO Logged in already? Display Logout  -->
 				<button id="logoutbutton" class="btn btn-primary my-2 my-sm-0">Logout</button>
 			</div>
 		</nav>

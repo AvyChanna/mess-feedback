@@ -66,7 +66,6 @@ session_start();
 						<input type="text" class="form-control" id="rollno" placeholder="Enter username" name="rollno" required>
 					</div>
 				</div>
-							<!-- TODO mess dropdown here here-->
 				<div class="form-group">
 					<label for="mess">Current Mess:</label>
 					<div class="input-group mb-3">
@@ -110,7 +109,6 @@ session_start();
 		<span class="navbar-text text-center mx-auto my-0 pt-2 pb-2 text-decoration-none"><i class="fas fa-copyright"></i> Avneet Singh, Naveen Gupta - Systems Programming Lab, 2019</span>
 	</nav>
 </div>
-<!-- <script defer src="/static/js/clipboard.js" crossorigin="anonymous"></script> --> 
 <script src="/static/js/login.js" crossorigin="anonymous"></script>
 </body>
 </html>

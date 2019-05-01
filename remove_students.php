@@ -10,7 +10,6 @@
 	<script src="/static/js/jquery.js" crossorigin="anonymous"></script>
 	<script src="/static/js/popper.js" crossorigin="anonymous"></script>
 	<script src="/static/js/bootstrap.js" crossorigin="anonymous"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<title>Mess Feedback Portal</title>
 </head>
 
@@ -66,7 +65,7 @@
 	<!-- <script defer src="/static/js/clipboard.js" crossorigin="anonymous"></script> -->
 	<script src="/static/js/logout_button.js" crossorigin="anonymous"></script>
 	<script>
-		$(document).ready(function () {
+		$(function () {
 			function load_data(query) {
 				$.ajax({
 					url: "/fetch.php",
@@ -76,33 +75,33 @@
 					},
 					success: function (data) {
 						$('#result').html(data);
+						$(".btn_delete").click(function (){
+							var id = $(this).data("id5");
+							console.log("hello");
+							if (confirm("Are you sure you want to delete this?")) {
+								$.ajax({
+									url: "/delete.php",
+									method: "POST",
+									data: {
+										id: id
+									},
+									dataType: "text",
+									success: function (data) {
+										load_data();
+									}
+								});
+							}
+						});
 					}
 				});
 			}
 			load_data();
-
-			$('#search_text').keyup(function () {
+			$('#search_text').change(function () {
 				var search = $(this).val();
 				if (search != '') {
 					load_data(search);
 				} else {
 					load_data();
-				}
-			});
-			$(document).on('click', '.btn_delete', function () {
-				var id = $(this).data("id5");
-				if (confirm("Are you sure you want to delete this?")) {
-					$.ajax({
-						url: "delete.php",
-						method: "POST",
-						data: {
-							id: id
-						},
-						dataType: "text",
-						success: function (data) {
-							load_data();
-						}
-					});
 				}
 			});
 		});

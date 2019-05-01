@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(  (!isset($_SESSION["loggedin"]))   ||   $_SESSION["loggedin"]==false || $_SESSION["status"]!="admin"){
+    if(  (!isset($_SESSION["loggedin"]))   ||   $_SESSION["loggedin"]=="f" || $_SESSION["status"]!="admin"){
         die("1");
     }
     // TODO change to post later

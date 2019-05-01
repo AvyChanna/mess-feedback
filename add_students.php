@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 		$password = $mysqli->real_escape_string($_POST['password']);
 		$sql = "INSERT INTO users (username, `name`, rollno, passwordhash, mess)". "Values ('".$username."', '".$fullname."', ".$rollno.", '".$password."', '".$mess."')";
 
-		if ($mysqli->query($sql)==true){
+		if ($mysqli->query($sql)){
 			$_SESSION['message']= 'Registration successful';
 			header('location: #');
 		} else die($mysqli->error);
@@ -55,7 +55,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 						<li class="nav-item"> <a class="nav-link" href="/admin_change_password.php">Change Password</a>
 						</li>
 					</ul>
-					<!-- TODO Logged in already? Display Logout  -->
 					<button id="logoutbutton" class="btn btn-primary my-2 my-sm-0">Logout</button>
 				</div>
 			</nav>
@@ -67,7 +66,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 					<hr>
 				</div>
 				<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5">
-					<!-- TODO add signup api uri -->
 					<form action="#" method="POST">
 						<div class="form-group">
 							<label for="name">FullName:</label>

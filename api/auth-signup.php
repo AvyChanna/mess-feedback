@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 		$password = $mysqli->real_escape_string($_POST['password']);
 		$sql = "INSERT INTO users (username, `name`, rollno, passwordhash, mess)". "Values ('".$username."', '".$fullname."', ".$rollno.", '".$password."', '".$mess."')";
 
-		if ($mysqli->query($sql)==true){
+		if ($mysqli->query($sql)){
 			$_SESSION['message']= 'Registration successful';
 			header('location: ../login.php');
 		} else die($mysqli->error);

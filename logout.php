@@ -1,4 +1,3 @@
-// TODO: clear cookies here
 <?php
 session_start();
 session_unset();

@@ -90,7 +90,6 @@ session_start ();
 				</div>
 			</form>
 			<br>
-			<!-- TODO register here-->
 			<div class="container-fluid text-center"> <a href="/login.php" class="pb-5">Already have an account? Login Here</a> </div>
 		</div>
 	</div>

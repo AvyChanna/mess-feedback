@@ -33,7 +33,6 @@
 					<li class="nav-item"> <a class="nav-link" href="/admin_change_password.php">Change Password</a>
 					</li>
 				</ul>
-				<!-- TODO Logged in already? Display Logout  -->
 				<button id="logoutbutton" class="btn btn-primary my-2 my-sm-0">Logout</button>
 			</div>
 		</nav>
@@ -43,7 +42,6 @@
 		<h1 class="text-center display-5 pt-2">Mess Management Signup</h1>
 		<div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5"><hr></div>
 		<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5"> 
-			<!-- TODO add signup api uri -->
 			<form action="/api/add_word.php" method="POST">
 			<div class="form-group">
 				<label for="keyword">New Keyword:</label>

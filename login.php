@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(  (isset($_SESSION["loggedin"]))   &&   ($_SESSION["loggedin"]=true)){
+if(  (isset($_SESSION["loggedin"]))   &&   ($_SESSION["loggedin"]=="t")){
 	header("Location: home.php");
 	die();
 }
@@ -24,17 +24,6 @@ if(  (isset($_SESSION["loggedin"]))   &&   ($_SESSION["loggedin"]=true)){
 		<div class="header">
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <a class="navbar-brand"
 					href="javascript:void();">Mess Feedback</a>
-				<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>  -->
-				<!-- <div class="collapse navbar-collapse" id="navbarCollapse">  -->
-				<!--		<ul class="navbar-nav mr-auto">-->
-				<!--			<li class="nav-item active"> <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a> </li>-->
-				<!--			<li class="nav-item"> <a class="nav-link" href="#">Edit Profile</a> </li>-->
-				<!--			<li class="nav-item"> <a class="nav-link" href="#">Provide New Feedback</a> </li>-->
-				<!--			<li class="nav-item"> <a class="nav-link" href="#">View Previous Feedbacks</a> </li>-->
-				<!--		</ul>-->
-				<!-- TODO Logged in already? Display Logout -->
-				<!-- <button class="btn btn-primary my-2 my-sm-0" onclick="javascript:logout();">Logout</button>-->
-				<!--	</div>-->
 			</nav>
 		</div>
 		<div class="container-fluid main page">
@@ -44,7 +33,6 @@ if(  (isset($_SESSION["loggedin"]))   &&   ($_SESSION["loggedin"]=true)){
 					<hr>
 				</div>
 				<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5">
-					<!-- TODO add signup api uri -->
 					<form action="/api/auth-login.php" method="POST">
 						<div class="form-group">
 							<label for="uname">Username:</label>
@@ -69,7 +57,6 @@ if(  (isset($_SESSION["loggedin"]))   &&   ($_SESSION["loggedin"]=true)){
 						</div>
 					</form>
 					<br>
-					<!-- TODO register here-->
 					<div class="container-fluid text-center"> <a href="/signup.php" class="mb-5">Don't have an account?
 							Register Here</a> </div>
 				</div>

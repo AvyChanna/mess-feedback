@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if((!isset($_SESSION["loggedin"])) || $_SESSION["loggedin"]=false || $_SESSION["status"]!="student" )
+    if((!isset($_SESSION["loggedin"])) || $_SESSION["loggedin"]=="f" || $_SESSION["status"]!="student" )
 		die("1");
 	if(isset($_POST['newmess'])) {
     $mysqli = new mysqli("localhost", "root", "", "mess");

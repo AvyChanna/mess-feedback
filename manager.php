@@ -29,7 +29,6 @@
 								Feedbacks</a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/view_notice.php">View Notices</a> </li>
 					</ul>
-					<!-- TODO Logged in already? Display Logout  -->
 					<button id="logoutbutton" class="btn btn-primary my-2 my-sm-0">Logout</button>
 				</div>
 			</nav>

@@ -29,7 +29,6 @@
 						<li class="nav-item active"> <a class="nav-link" href="#">View Notices<span
 									class="sr-only">(current)</span></a> </li>
 					</ul>
-					<!-- TODO Logged in already? Display Logout  -->
 					<button id="logoutbutton" class="btn btn-primary my-2 my-sm-0">Logout</button>
 				</div>
 			</nav>

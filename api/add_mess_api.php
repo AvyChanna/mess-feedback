@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 		$password = $mysqli->real_escape_string($_POST['password']);
 		$sql = "INSERT INTO mess (mess, username)". "Values ('".$mess."', '".$mess."_mess_manager')";
 		$sql2 = "INSERT INTO users (username, `name`, rollno, passwordhash, mess, `status`)". "Values ('".$mess."_mess_manager', '".$mess_manager."', ".$mobileno.", '".$password."', '".$mess."', 'manager')";
-		if (($mysqli->query($sql)==true) &&($mysqli->query($sql2)==true)){
+		if (($mysqli->query($sql)) &&($mysqli->query($sql2))){
 			$_SESSION['message']= 'Registration successful';
 			header('location: ../add_mess.php');
 		} else die($mysqli->error);

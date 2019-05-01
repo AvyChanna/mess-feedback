@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $_SESSION['loggedin']=true;
+    $_SESSION['loggedin']="t";
     $_SESSION['username']='test';
     $_SESSION['name']='Test';
     $_SESSION['mess']='a';

@@ -28,8 +28,6 @@
 								Upcoming Month</a> </li>
 						<li class="nav-item active"> <a class="nav-link" href="#">Provide New Feedback<span
 									class="sr-only">(current)</span></a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/student_previous_feedback.php">View Previous
-								Feedbacks</a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/student_change_password.php">Change
 								Password</a> </li>
 					</ul>

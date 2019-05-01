@@ -7,12 +7,12 @@
     $query = "SELECT word, rating  FROM words";
     if ($result = $mysqli->query($query)) {
         while ($row = $result->fetch_assoc())
-		$data_arr[] = array(
-			'word' => $row['word'],
-			'rating' => $row['rating']
-		);
-        header('Content-Type: application/json');
-        echo json_encode($data_arr);
+			$data_arr[] = array(
+				'word' => $row['word'],
+				'rating' => $row['rating']
+			);
+			echo json_encode($data_arr);
+			header('Content-Type: application/json');
         $result->free();
     } else die("Error in query: ".$mysqli->error);
     $mysqli->close();

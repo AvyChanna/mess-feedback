@@ -38,13 +38,29 @@
 		</div>
 		<div class="container-fluid main page">
 			<div class="text-light pt-5 pb-5 pb-md-0">
-				<h1 class="text-center display-5 pt-2">Mess Management Login</h1>
+				<h1 class="text-center display-5 pt-2">Change mess</h1>
 				<div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5">
 					<hr>
 				</div>
 				<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5">
-					<!-- TODO add signup api uri -->
-					<form action="#" method="POST">
+					<div class="container-fluid h5 mb-3">Current Mess = <b><?php echo $_SESSION['mess'] ?></b></div>
+					<form action="/api/change-mess.php" method="POST">
+						<div class="form-group container-fluid">
+							<label for="newmess">New Mess</label>
+							<select class="form-control form-control-sm" id="newmess" name="newmess">
+								<?php 
+									$mysqli = new mysqli("localhost", "root", "", "mess");
+									if ($result = $mysqli->query("SELECT mess FROM mess"))
+										while ($row = $result->fetch_assoc())
+											if($row['mess'] !== $_SESSION['mess'])
+												echo '<option>'.$row['mess'].'</option>';
+								?>
+							</select>
+						</div>
+						<div class="row text-center">
+							<button type="submit" class="mx-auto px-5 mt-3 btn btn-primary">Change mess</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -56,5 +72,4 @@
 	<!-- <script defer src="/static/js/clipboard.js" crossorigin="anonymous"></script> -->
 	<script src="/static/js/logout_button.js" crossorigin="anonymous"></script>
 </body>
-
 </html>

@@ -26,8 +26,8 @@
 						<li class="nav-item"> <a class="nav-link" href="/admin.php">Home</a> </li>
 						<li class="nav-item active"> <a class="nav-link" href="#">View Mess<span
 									class="sr-only">(current)</span></a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/add_users.php">Add Users</a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/remove_users.php">Remove Users</a> </li>
+						<li class="nav-item"> <a class="nav-link" href="/add_students.php">Add students</a> </li>
+						<li class="nav-item"> <a class="nav-link" href="/remove_students.php">Remove students</a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/add_remove_keywords.php">Edit Keywords</a>
 						</li>
 						<li class="nav-item"> <a class="nav-link" href="/admin_change_password.php">Change Password</a>

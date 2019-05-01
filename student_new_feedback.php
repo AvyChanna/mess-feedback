@@ -40,13 +40,20 @@
 		</div>
 		<div class="container-fluid main page">
 			<div class="text-light pt-5 pb-5 pb-md-0">
-				<h1 class="text-center display-5 pt-2">Mess Management Login</h1>
+				<h1 class="text-center display-5 pt-2">Add Feedback</h1>
 				<div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5">
 					<hr>
 				</div>
-				<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5">
-					<!-- TODO add signup api uri -->
+				<div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5">
 					<form action="#" method="POST">
+						<div class="form-group">
+							<label for="feedbacktext">Currently subscribed mess =
+								<b><?php echo $_SESSION['mess'] ?></b></label>
+							<textarea class="form-control z-depth-1" id="feedbacktext"
+								placeholder="Add feedback here..." rows="7"></textarea>
+						</div>
+
+					</form>
 				</div>
 			</div>
 		</div>

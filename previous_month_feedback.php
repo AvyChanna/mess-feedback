@@ -23,11 +23,10 @@
 						class="navbar-toggler-icon"></span> </button>
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"> <a class="nav-link" href="manager.php">Home<span
-                                    class="sr-only">(current)</span></a> </li>
-						<li class="nav-item"> <a class="nav-link" href="#">View Last Month
-								Feedbacks<span
-                                    class="sr-only">(current)</span></a> </li>
+						<li class="nav-item"> <a class="nav-link" href="manager.php">Home<span
+									class="sr-only">(current)</span></a> </li>
+						<li class="nav-item active"> <a class="nav-link" href="#">View Last Month
+								Feedbacks<span class="sr-only">(current)</span></a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/view_notice.php">View Notices</a> </li>
 					</ul>
 					<button id="logoutbutton" class="btn btn-primary my-2 my-sm-0">Logout</button>
@@ -36,13 +35,18 @@
 		</div>
 		<div class="container-fluid main page">
 			<div class="text-light pt-5 pb-5 pb-md-0">
-				<h1 class="text-center display-5 pt-2">Mess Management Login</h1>
+				<h1 class="text-center display-5 pt-2">Last month feedbacks</h1>
 				<div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5">
 					<hr>
 				</div>
 				<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5">
-					<!-- TODO add signup api uri -->
-					<form action="#" method="POST">
+					<?php 
+							$mysqli = new mysqli("localhost", "root", "", "mess");
+							$mess=mysqli_escape_string($mysqli, $_SESSION['mess']);
+							if ($result = $mysqli->query("SELECT feedback, rating, DATE_FORMAT(`date`, ' %e %M, %Y') as datee FROM feedbacks where mess = '".$mess."' and MONTH(`date`) = MONTH(CURRENT_DATE()) AND YEAR(`date`) = YEAR(CURRENT_DATE())"))
+								while ($row = $result->fetch_assoc())
+										echo '<div class="card"><div class="card-body"><p class="card-text">'.$row['feedback'].'</p><p class="card-text">Rating='.$row['rating'].'</p><p class="card-text">Date='.$row['datee'].'</p></div></div>';
+					?>
 				</div>
 			</div>
 		</div>

@@ -23,7 +23,7 @@
 	$feedback = strtolower($feedback);
 	$word="";
 	for ($i=(int)0;$i<strlen($feedback);$i++)
-		if(!ctype_alpha($feedback[$i]))
+		if(!ctype_alnum($feedback[$i]))
 			$feedback[$i]=" ";
 	$token = strtok($feedback, " ");
 

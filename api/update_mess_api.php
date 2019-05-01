@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 		$mobileno = $mysqli->real_escape_string($_POST['manager_number']);
 		$mobileno = (int)$mobileno;
 		$sql2 = "UPDATE users SET `name`='".$mess_manager."', rollno = '".$mobileno."' WHERE username = '".$mess."_mess_manager'";
-		if (($mysqli->query($sql2)==true)){
+		if (($mysqli->query($sql2))){
 			$_SESSION['message']= 'Registration successful';
 			header('location: ../update_mess.php');
 		} else die($mysqli->error);

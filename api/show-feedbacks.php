@@ -2,7 +2,7 @@
 session_start ();
 $_SESSION['message']='';
 $data = array();
-$mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
+$mysqli = new mysqli('localhost', 'root', '','mess') or printf("Connect failed: %s\n". $conn -> error);
 // if($_SERVER['REQUEST_METHOD']=='POST'){
 $result = $mysqli->query("SELECT * FROM `feedbacks`");
 if (($result)){

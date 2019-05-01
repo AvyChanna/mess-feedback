@@ -54,7 +54,7 @@ if($_SESSION["status"]!="student")
 					<?php
 					if(  (isset($_SESSION["loggedin"]))&&($_SESSION["loggedin"]=="t")&&isset($_POST['oldpassword'])){
 						if(($_SESSION['password']==$_POST['oldpassword'])){
-							$mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
+							$mysqli = new mysqli('localhost', 'root', '','mess') or printf("Connect failed: %s\n". $conn -> error);
 							if($_SERVER['REQUEST_METHOD']=='POST'){
 								//$password = md5($_POST['password']);
 								if($_POST['newpassword']==$_POST['confpassword'])
@@ -62,9 +62,9 @@ if($_SESSION["status"]!="student")
 									$sql = "UPDATE users SET passwordhash='".$_POST['newpassword']."' WHERE username='".$_SESSION['username']."'";
 									if(!$mysqli->query( $sql)){header("location: student_change_password.php");die();}
 									$_SESSION['password']=$_POST['confpassword'];
-								} else {echo("Password's don't match");}
+								} else {echo('<div class="text-danger h5 text-center">Passwords do not match</div>');}
 							}
-						} else echo("Old password entered is not correct");
+						} else echo  '<div class="text-danger h5 text-center">Old password entered is not correct</div>';
 					}
 					?>
 					<form action="#" method="POST">

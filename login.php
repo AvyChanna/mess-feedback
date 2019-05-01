@@ -36,7 +36,7 @@ if(  (isset($_SESSION["loggedin"]))   &&   ($_SESSION["loggedin"]=="t")){
 				<?php
 				if(  (!isset($_SESSION["loggedin"]))   ||   ($_SESSION["loggedin"]=="f")){
 					if($_SERVER['REQUEST_METHOD']=='POST'){
-						$mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
+						$mysqli = new mysqli('localhost', 'root', '','mess') or printf("Connect failed: %s\n". $conn -> error);
 						$username = $mysqli->real_escape_string($_POST['username']);
 						//$password = md5($_POST['password']);
 						$password = $mysqli->real_escape_string($_POST['password']);
@@ -59,7 +59,6 @@ if(  (isset($_SESSION["loggedin"]))   &&   ($_SESSION["loggedin"]=="t")){
 								} else echo ("Password is incorrect");
 							} else 
 							{echo("Username is incorrect");}
-							//mysqli_close($mysqli);
 						} 
 					}
 				} else if(  (isset($_SESSION["loggedin"]))   &&   ($_SESSION["loggedin"]=="t")){

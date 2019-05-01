@@ -52,7 +52,7 @@ if($_SESSION["status"]!="admin")
 		<div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5"><hr></div>
 		<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5"> 
 				<?php
-				$mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
+				$mysqli = new mysqli('localhost', 'root', '','mess') or printf("Connect failed: %s\n". $conn -> error);
 				if($_SERVER['REQUEST_METHOD']=='POST'){
 						$keyword = $mysqli->real_escape_string($_POST['keyword']);
 						$rating = $mysqli->real_escape_string($_POST['rating']);

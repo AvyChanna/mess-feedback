@@ -1,7 +1,7 @@
 <?php
 session_start();
 $_SESSION['message']='';
-$mysqli = new mysqli('localhost', 'root', '','mess') or die("Connect failed: %s\n". $conn -> error);
+$mysqli = new mysqli('localhost', 'root', '','mess') or printf("Connect failed: %s\n". $conn -> error);
 if($_SERVER['REQUEST_METHOD']=='POST'){
 	if($_POST['password']==$_POST['confpassword']){
 		$username = $mysqli->real_escape_string($_POST['username']);

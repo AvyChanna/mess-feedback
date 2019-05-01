@@ -96,8 +96,15 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 						<div class="form-group">
 							<label for="mess">Current Mess:</label>
 							<div class="input-group mb-3">
-								<input type="text" class="form-control" id="mess" placeholder="Enter Mess" name="mess"
-									required>
+							<select class="form-control " id="mess" name="mess">
+										<?php 
+											$mysqli = new mysqli("localhost", "root", "", "mess");
+											if ($result = $mysqli->query("SELECT mess FROM mess"))
+												while ($row = $result->fetch_assoc())
+													if($row['mess'] !== $_SESSION['mess'])
+														echo '<option>'.$row['mess'].'</option>';
+										?>
+									</select>
 							</div>
 						</div>
 						<div class="form-group">

@@ -46,6 +46,7 @@
 	$stmt = $mysqli2->prepare("insert into feedbacks (feedback, rating, username, mess) values( ? , ? , ? , ? )");
 	$stmt->bind_param("sdss", $_POST['feedback'], $rating, $_SESSION['username'], $_SESSION['mess']);
 	if ($result = $stmt->execute()) {
-		die("0"	);
+		header("location: student_new_Feedback.php");
+		die();
 	} else die("Error in query: ".$mysqli2->error);
 ?>

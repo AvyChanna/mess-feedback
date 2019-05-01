@@ -61,7 +61,11 @@
 						$rating = 5;
 					else
 						$rating = (float)$rating / $count;
-						echo '<div class="card"><div class="card-body"><p class="card-text">Mess = <b>'.$mess.'</b></p><p class="card-text">Current Rating = <b>'.$rating.'</b></p></div></div>';
+						echo '<div class="card"><div class="card-body"><p class="card-text">Mess = <b>'.$mess.'</b></p><p class="card-text">Rating = <span class="text-bold ';
+						if($rating <4)
+							echo 'text-danger';
+							else echo 'text-success';
+							echo '">'.$rating.'</span></p><p>Feedbacks = '.$count.'</div></div>';
 				}
 				?>
 				</div>

@@ -23,8 +23,7 @@
 						class="navbar-toggler-icon"></span> </button>
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item"> <a class="nav-link" href="manager.php">Home<span
-									class="sr-only">(current)</span></a> </li>
+						<li class="nav-item"> <a class="nav-link" href="manager.php">Home</a> </li>
 						<li class="nav-item active"> <a class="nav-link" href="#">View Last Month
 								Feedbacks<span class="sr-only">(current)</span></a> </li>
 						<li class="nav-item"> <a class="nav-link" href="/view_notice.php">View Notices</a> </li>
@@ -44,8 +43,13 @@
 							$mysqli = new mysqli("localhost", "root", "", "mess");
 							$mess=mysqli_escape_string($mysqli, $_SESSION['mess']);
 							if ($result = $mysqli->query("SELECT feedback, rating, DATE_FORMAT(`date`, ' %e %M, %Y') as datee FROM feedbacks where mess = '".$mess."' and MONTH(`date`) = MONTH(CURRENT_DATE()) AND YEAR(`date`) = YEAR(CURRENT_DATE())"))
-								while ($row = $result->fetch_assoc())
-										echo '<div class="card"><div class="card-body"><p class="card-text">'.$row['feedback'].'</p><p class="card-text">Rating='.$row['rating'].'</p><p class="card-text">Date='.$row['datee'].'</p></div></div>';
+								while ($row = $result->fetch_assoc()){
+										echo '<div class="card"><div class="card-body"><p class="card-text text-warning">'.$row['feedback'].'</p><p class="card-text">Rating=<span class="';
+										if($row['rating'] <4)
+										echo 'text-danger';
+										else echo 'text-success';
+										echo '">'.$row['rating'].'</span></p><p class="card-text">Date=<span class="text-info">'.$row['datee'].'</span></p></div></div>';
+								}
 					?>
 				</div>
 			</div>

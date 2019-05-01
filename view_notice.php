@@ -56,9 +56,9 @@
 							$rating = (float)$rating / $count;
 						echo '<div>Current Rating = <b>'.$rating.'</b></div>';
 						if($rating <4)
-							echo '<div class="h4 py-5 text-warning">You have received a show-cause notice from the admin</div>';
+							echo '<div class="h4 py-5 text-warning  text-center">You have received a show-cause notice from the admin</div>';
 						else
-							echo '<div class="h4 py-5 text-success">No show-cause notice received';
+							echo '<div class="h4 py-5 text-success  text-center">No show-cause notice received</div>';
 					?>
 				</div>
 			</div>

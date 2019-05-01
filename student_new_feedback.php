@@ -42,20 +42,26 @@
 					<hr>
 				</div>
 				<div class="col-12 col-sm-10 col-md-8 col-xl-6 offset-0 offset-xl-3 offset-md-2 offset-sm-1 pb-5">
-					<form action="/api/add-feedback.php" method="POST">
-						<div class="form-group">
-							<label for="feedbacktext">Currently subscribed mess =
-								<b><span class="text-capitalize"><?php echo $_SESSION['mess'] ?></span></b></label>
-							<textarea class="form-control z-depth-1" id="feedbacktext"
-								placeholder="Add feedback here..." name="feedback" rows="7"></textarea>
-						</div>
-						<div class="row text-center">
-							<button type="submit" class="mx-auto px-5 mt-3 btn btn-primary">Submit Feedback</button>
-						</div>
-					</form>
-				</div>
+					<?php 
+				$mysqli = new mysqli("localhost", "root", "", "mess");
+				$mess=mysqli_escape_string($mysqli, $_SESSION['mess']);
+				$username=mysqli_escape_string($mysqli, $_SESSION['username']);
+				if ($result = $mysqli->query("SELECT `date` FROM feedbacks where username = '".$username."' and  mess = '".$mess."' and MONTH(`date`) = MONTH(CURRENT_DATE()) AND YEAR(`date`) = YEAR(CURRENT_DATE())"))
+				{	
+					if($result->num_rows == 0 )
+					echo '<div class="h4 py-5 text-success  text-center">Already submitted feedback</div>';
+				}else{
+					echo '<form action="/api/add-feedback.php" method="POST">';
+					echo '<div class="form-group"><label for="feedbacktext">Currently subscribed mess =';
+					echo '<b><span class="text-capitalize"><?php echo $_SESSION["mess"] ?></span></b></label>';
+					echo '<textarea class="form-control z-depth-1" id="feedbacktext"';
+					echo ' placeholder="Add feedback here..." name="feedback" rows="7"></textarea></div><div class="row text-center">';
+					echo '<button type="submit" class="mx-auto px-5 mt-3 btn btn-primary">Submit Feedback</button></div></form>';
+				}
+				?>
 			</div>
 		</div>
+	</div>
 	</div>
 	<footer class="footer text-center">
 		<hr> <span class="text-center mx-auto my-0 py-0"><i class="fas fa-copyright"></i> Avneet Singh, Naveen

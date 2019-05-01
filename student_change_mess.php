@@ -43,23 +43,30 @@
 				</div>
 				<div class="col-12 col-sm-8 col-md-6 col-xl-4 offset-0 offset-xl-4 offset-md-3 offset-sm-2 pb-5">
 					<div class="container-fluid h5 mb-3">Current Mess = <b><?php echo $_SESSION['mess'] ?></b></div>
-					<form action="/api/change-mess.php" method="POST">
-						<div class="form-group container-fluid">
-							<label for="newmess">New Mess</label>
-							<select class="form-control form-control-sm" id="newmess" name="newmess">
-								<?php 
-									$mysqli = new mysqli("localhost", "root", "", "mess");
-									if ($result = $mysqli->query("SELECT mess FROM mess"))
-										while ($row = $result->fetch_assoc())
-											if($row['mess'] !== $_SESSION['mess'])
-												echo '<option>'.$row['mess'].'</option>';
-								?>
-							</select>
-						</div>
-						<div class="row text-center">
-							<button type="submit" class="mx-auto px-5 mt-3 btn btn-primary">Change mess</button>
-						</div>
-					</form>
+					<?php
+						$mysqli = new mysqli("localhost", "root", "", "mess");
+						$mess=mysqli_escape_string($mysqli, $_SESSION['mess']);
+						$username=mysqli_escape_string($mysqli, $_SESSION['username']);
+						if ($result = $mysqli->query("SELECT 1 FROM dual where DAY(CURRENT_DATE()) >= 27"))
+						{	
+							if($result->num_rows == 0){
+							echo '<div class="h4 py-5 text-success  text-center">Change mess feature will start after 27th every month</div>';
+						}else{
+							$result->free();
+							echo '<form action="/api/change-mess.php" method="POST">';
+							echo '<div class="form-group container-fluid">';
+							echo '<label for="newmess">New Mess</label>';
+							echo '<select class="form-control form-control-sm" id="newmess" name="newmess">';
+							$mysqli2 = new mysqli("localhost", "root", "", "mess");
+							if ($result = $mysqli2->query("SELECT mess FROM mess"))
+								while ($row = $result->fetch_assoc())
+									if($row['mess'] !== $_SESSION['mess'])
+										echo '<option>'.$row['mess'].'</option>';
+							echo '</select></div><div class="row text-center"><button type="submit" class="mx-auto px-5 mt-3 btn btn-primary">Change mess</button></div></form>';
+						}
+					}
+					?>
+					
 				</div>
 			</div>
 		</div>

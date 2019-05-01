@@ -23,15 +23,12 @@
 						class="navbar-toggler-icon"></span> </button>
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item"> <a class="nav-link" href="/student.php">Home</a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/student_change_mess.php">Change Mess For
-								Upcoming Month</a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/student_new_feedback.php">Provide New
-								Feedback</a> </li>
-						<li class="nav-item active"> <a class="nav-link" href="#">View Previous Feedbacks<span
-									class="sr-only">(current)</span></a> </li>
-						<li class="nav-item"> <a class="nav-link" href="/student_change_password.php">Change
-								Password</a> </li>
+					<li class="nav-item active"> <a class="nav-link" href="manager.php">Home<span
+                                    class="sr-only">(current)</span></a> </li>
+						<li class="nav-item"> <a class="nav-link" href="#">View Last Month
+								Feedbacks<span
+                                    class="sr-only">(current)</span></a> </li>
+						<li class="nav-item"> <a class="nav-link" href="/view_notice.php">View Notices</a> </li>
 					</ul>
 					<!-- TODO Logged in already? Display Logout  -->
 					<button id="logoutbutton" class="btn btn-primary my-2 my-sm-0">Logout</button>

@@ -16,8 +16,8 @@ $result = mysqli_query($connect, $query);
 if(mysqli_num_rows($result) > 0)
 {
     $output .= '
-    <div class="table-responsive">
-    <table class="table table-bordered">
+    <div class="table-responsive col-lg-10 offset-lg-1">
+    <table class="table table-striped">
     <tr>
     <th>Registration ID</th>
     <th>Username</th>

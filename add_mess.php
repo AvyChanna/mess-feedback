@@ -67,8 +67,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 		if (($mysqli->query($sql)) &&($mysqli->query($sql2))){
 			$_SESSION['message']= 'Registration successful';
 			header('location: ../add_mess.php');
-		} else echo("Mess with entered name already exist");
-	} else echo("Passwords don't match");
+		} else echo '<div class="text-danger h5 text-center">Mess with entered name already exist</div>';
+	} else echo '<div class="text-danger h5 text-center">Passwords do not match</div>';
 }
 ?>
 			<form action="#" method="POST">

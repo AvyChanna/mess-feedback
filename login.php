@@ -56,9 +56,9 @@ if(  (isset($_SESSION["loggedin"]))   &&   ($_SESSION["loggedin"]=="t")){
 									$_SESSION["password"]=$row["passwordhash"];
 									header('location: ../home.php');
 									die();
-								} else echo ("Password is incorrect");
+								} else echo '<div class="text-danger h5 text-center">Password is incorrect</div>';
 							} else 
-							{echo("Username is incorrect");}
+							{echo '<div class="text-danger h5 text-center">Username is incorrect</div>';}
 							//mysqli_close($mysqli);
 						} 
 					}

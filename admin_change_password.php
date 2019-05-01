@@ -66,9 +66,9 @@ if($_SESSION["status"]!="admin")
 									$sql = "UPDATE users SET passwordhash='".$_POST['newpassword']."' WHERE username='".$_SESSION['username']."'";
 									$result = $mysqli->query( $sql);
 									$_SESSION['password']=$_POST['confpassword'];
-								} else echo("Password's don't match");
+								} else echo '<div class="text-danger h5 text-center">Passwords do not match</div>';
 							}
-						}else echo("Old password entered is not correct");
+						}else echo '<div class="text-danger h5 text-center">Old password entered is not correct</div>';
 					}	
 					?>
 					<form action="#" method="POST">
